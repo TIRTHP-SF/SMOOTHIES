@@ -10,7 +10,7 @@ st.write(
   """
 )
 
-smoothiefroot_response=requests.get("Https://my.smoothie.com/API/fruit/watermelon")
+smoothiefroot_response=requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
 at.text(smoothiefroot_response.json())
 
 name_on_order= st.text_input('Your Name')
