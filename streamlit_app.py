@@ -11,7 +11,7 @@ st.write(
 )
 
 smoothiefroot_response=requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-at.text(smoothiefroot_response.json())
+st.text(smoothiefroot_response.json())
 
 name_on_order= st.text_input('Your Name')
 st.write("The name on your smoothie is: ", name_on_order)
