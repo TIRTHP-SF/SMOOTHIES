@@ -3,6 +3,7 @@ import streamlit as st
 #from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 import requests
+smoothiefroot_response=requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
 # Write directly to the app
 st.title(f":cup_with_straw: Customise your Smoothie! :cup_with_straw:")
 st.write(
@@ -10,7 +11,7 @@ st.write(
   """
 )
 
-smoothiefroot_response=requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+
 st.text(smoothiefroot_response.json())
 sf_df=st.dataframe(data=smoothiefroot_response.json(),use_container_width=True)
 
