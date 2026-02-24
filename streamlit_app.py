@@ -3,7 +3,7 @@ import streamlit as st
 #from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 import requests
-smoothiefroot_response=requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+
 # Write directly to the app
 st.title(f":cup_with_straw: Customise your Smoothie! :cup_with_straw:")
 st.write(
@@ -13,7 +13,7 @@ st.write(
 
 
 #st.text(smoothiefroot_response.json())
-sf_df=st.dataframe(data=smoothiefroot_response.json(),use_container_width=True)
+
 
 name_on_order= st.text_input('Your Name')
 st.write("The name on your smoothie is: ", name_on_order)
@@ -37,6 +37,8 @@ if ingredients_list:
 
     for fruit in ingredients_list:
         ingredients_string+=fruit+' '
+smoothiefroot_response=requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+sf_df=st.dataframe(data=smoothiefroot_response.json(),use_container_width=True)
     #st.write(ingredients_string)
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order) 
             values ('""" + ingredients_string + """','"""+name_on_order+"""') """
